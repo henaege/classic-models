@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:val', (req, res, next)=> {
-  
+
 
 var description = '';
 var productList = [];
@@ -54,7 +54,7 @@ connection.query(descriptionQuery, (error, results)=> {
   
 
 
-  res.render(req.params.val, {
+  res.render('morestuff', {
     description: description,
     productList: productList
   })
@@ -85,7 +85,7 @@ router.get('/products/:val', (req, res, next)=> {
           orderNumbers.push(results[i].orderNumber)
         }
         
-    res.render(req.params.val, {
+    res.render('stuff', {
       productInfo: productInfo,
       orderTotal: orderTotal,
       totalOrdered: totalOrdered,
@@ -101,6 +101,8 @@ router.get('/products/:val', (req, res, next)=> {
     var employeeInfo2;
     var orderStatus;
     var totalOrderAmount;
+    var link = req.params.val;
+    console.log(req.params);
 
     var orderProductQuery = `SELECT productName FROM products INNER JOIN orderdetails ON orderNumber = '${req.params.val}' and products.productCode = orderdetails.productCode;`;
 
@@ -143,14 +145,15 @@ router.get('/products/:val', (req, res, next)=> {
       path = path.slice(7, 12);
       
 
-      res.render(req.params.val, {
+      res.render('otherstuff', {
         productCodes: productCodes,
         path: path,
         customerInfo: customerInfo,
         employeeInfo:employeeInfo,
         employeeInfo2: employeeInfo2,
         orderStatus: orderStatus,
-        totalOrderAmount: totalOrderAmount
+        totalOrderAmount: totalOrderAmount,
+        link: link
       })
     })
   })
