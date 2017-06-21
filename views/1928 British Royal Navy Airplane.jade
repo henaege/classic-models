@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  h1= title
+  
+  h2 Product Info:
+  br
+  h3 Product Code:
+    -each val in productInfo
+        li #{val.productCode}
+  h3 Product Name:
+    -each val in productInfo
+        li #{val.productName}
+  h3 Product Line: 
+    -each val in productInfo
+        li  #{val.productLine}
+  h3 Product Scale:
+    -each val in productInfo
+        li #{val.productScale}
+  h3 Product Vendor:
+    -each val in productInfo
+        li #{val.productVendor}
+  h3 Product Description:
+    -each val in productInfo
+        li #{val.productDescription}
+  h3 Quantity Available:
+    -each val in productInfo
+        li #{val.quantityInStock}
+  h3 Buyer Price:
+    -each val in productInfo
+        li #{val.buyPrice} 
+  h3 MSRP:
+    -each val in productInfo
+        li #{val.MSRP}
+  h3 Order Total: #{orderTotal}
+  h3 Total Qty Ordered: #{totalOrdered}
+  h3 Order Numbers:
+    -each val in orderNumbers
+      a(href="/order/#{val}")
+       p #{val}
