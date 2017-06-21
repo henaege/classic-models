@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  h3 Products ordered on order number #{path}:
+    -each val in productCodes
+        li #{val.productName}
+  h3 Customer info for order number #{path}:
+    li Customer Number:  #{customerInfo[0].customerNumber}
+    li Customer Name: #{customerInfo[0].customerName}
+    li Customer City: #{customerInfo[0].city}
+  h3 Salesman info for order number #{path}:
+    li Employee Name: #{employeeInfo[0].firstName} #{employeeInfo[0].lastName}
+    li Office: #{employeeInfo2[0].city}
+    li Reports to: #{employeeInfo2[0].firstName} #{employeeInfo2[0].lastName}
+  h3 Order Status: #{orderStatus}
+  h3 Total Order Amount: $#{totalOrderAmount}

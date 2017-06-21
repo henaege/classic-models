@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Description:
+  p #{description}
+  br
+  p Product List:
+    -each val in productList
+      a(href="/products/#{val}")
+        p #{val}

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p Products:
+    -each val in product
+      a(href="#{val}")
+        p #{val}
