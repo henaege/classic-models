@@ -23,3 +23,6 @@
     * Order Status
     * Order Total (quantity x price)
         
+### To-do:
+ * Add styling
+   * menu bar
